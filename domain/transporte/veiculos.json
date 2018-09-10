@@ -1,0 +1,17 @@
+[
+   {
+      "codigo":1,
+      "nome":"Caminhão baú",
+      "fator":1.00
+   },
+   {
+      "codigo":2,
+      "nome":"Caminhão baú",
+      "fator":1.00
+   },
+   {
+      "codigo":1,
+      "nome":"Carreta",
+      "fator":1.12
+   }
+]

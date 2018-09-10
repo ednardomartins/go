@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Calular Custo de Carga Transportada</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.js"></script>
+<meta charset="utf-8">
+<script th:src="@{/custos.js}"></script>
+
+<link href="plugins/angular-material/angular-material.min.css"
+	rel="stylesheet" />
+<!--CSS-->
+<link href="css/custos.css" rel="stylesheet" />
+<link href="css/bootstrap.css" rel="stylesheet" />
+<link href="css/site.css" rel="stylesheet" />
+<link href="css/style.css" rel="stylesheet" />
+<link href="css/nga.all.min.css" rel="stylesheet" />
+<link href="css/themes.css" rel="stylesheet" />
+<link href="css/dashboard.css" rel="stylesheet" />
+<link href="css/font-awesome.min.css" rel="stylesheet" />
+<link href="plugins/bootstrap-slider/slider.css" rel="stylesheet" />
+<link href="css/flexslider.css" rel="stylesheet" />
+<link href="plugins/owl-carousel/owl.theme.css" rel="stylesheet" />
+<link href="plugins/owl-carousel/owl.transitions.css" rel="stylesheet" />
+<link href="plugins/owl-carousel/owl.carousel.css" rel="stylesheet" />
+
+<head>
+<body ng-app="GerenciadorFinanceiroTransporteCarga"
+	ng-controller="CustoTransporteCargaController">
+	<div class="container margin-top-80">
+		<div class="panel panel-info" style="min-height:680px;">
+			<div class="panel-heading">Calular Custo de Carga Transportada</div>
+			<!-- Main content -->
+			<form ng-submit="submitDetalheTransporte()" class="ng-pristine">
+          <table class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 center"
+					border="0">
+					<tr>
+						<td>
+				<fieldset>
+				   <legend><font color="red">{{labelErros}}</font></legend>
+					<div align="left">
+						<font color="red">
+							<li ng-repeat="erro in erros">{{erro}}</li>
+						</font>
+					</div>
+				</fieldset>
+				<fieldset>
+					<legend>Distância em rodovia pavimentada</legend>
+					<div class="form-group">
+						<label>Valor em KM</label> <input  ng-model="detalheTransporteForm.distanciaRodoviaPavimentada" class="form-control"
+							 type="text">
+					</div>
+				</fieldset>
+				<fieldset>
+					<legend>Distância em rodovia não-pavimentada</legend>
+					<div class="form-group">
+						<label>Valor em KM</label> <input class="form-control"
+						ng-model="detalheTransporteForm.distanciaRodoviaNaoPavimentada" 
+							 type="text">
+					</div>
+				</fieldset>
+				<fieldset>
+					<legend>Veículo utilizado</legend>
+					<div class="form-group">
+					  <select class="form-control" ng-model="detalheTransporteForm.veiculoUtilizado">
+							<option ng-repeat="veiculo in veiculos"
+								value="{{veiculo.codigo}}">{{veiculo.nome}}</option>
+						</select>
+					</div>
+				</fieldset>
+				<fieldset>
+					<legend>Carga transportada *</legend>
+					<div class="form-group">
+						<input class="form-control"
+						 ng-model="detalheTransporteForm.cargaTransportada" 
+							 type="text" >
+					</div>
+				</fieldset>
+				<fieldset>
+					<div class="form-group" align="center">
+						<input type="submit" value="calcular"
+							class="waves-effect waves-light btns" />
+					</div>
+				</fieldset>
+				<fieldset>
+					<div class="form-group" align="center">
+						{{valor}}
+					</div>
+				</fieldset>
+				</td>
+				</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
